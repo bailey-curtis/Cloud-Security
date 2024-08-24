@@ -13,7 +13,7 @@ During our in-class activities we focused on configuring and setting up 3 VMs ru
 <br>
 The image below presents my final deliverable for this task:
 <br>
-![Cloud Security Deliverable.png](Cloud Security Deliverable.png)
+![Cloud Security Deliverable](https://github.com/user-attachments/assets/c6ecdbce-594b-4c67-af98-77380a26d9eb)
 
 
 
