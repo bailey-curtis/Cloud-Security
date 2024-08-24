@@ -40,7 +40,19 @@ VMs were then added accordingly, and set up with SSH keys. In order to do this, 
 Once our key was generated, we ran <b>cat</b> against our new <b>id_rsa.pub</b> key. <br>
 The key string was copied and pasted into Azure's Administrator Account sections for the corresponding VM in Azure.
 <br>
-In conclusion, this has allowed us to create an administrator account on the machine which will have SSH access.
+In conclusion, this has allowed us to create an administrator account on the machine which will have SSH access. This specific machine will be our jump box provisioner and will be used to access our other machines on the network.
+<br>
+<br>
+To configure the newly created machine, we identify our public IP address via entering the command <b>curl icanhazip.com</b> onto thew command line. We want to use of IPv4 address, and not our IPv6.
+<br>
+Once we have our IP, we had to create a rule within our security group to allow SSH connections through our public IP address to our internal VM's IP address.
+<br>
+<br>
+Docker was used to manage our containers within the other VMs on the network.
+<br>
+<b>cyberxsecurity/ansible</b> was pulled once docker was installed - this container will be the foundation for your VMs. Once these were successfully installed, a new security group rule was applied to allow our jump box full access to the virtual network.
+<br>
+<br>
 
 
 
