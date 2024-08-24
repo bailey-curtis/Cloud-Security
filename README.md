@@ -15,6 +15,9 @@ The image below presents my final deliverable for this task:
 <br>
 <br>
 <img src="https://github.com/bailey-curtis/Cloud-Security/blob/main/Cloud%20Security%20Deliverable.png">
+<br>
+<br>
+
 
 
 
