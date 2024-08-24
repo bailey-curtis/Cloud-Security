@@ -6,7 +6,7 @@ During our in-class activities we focused on configuring and setting up 3 VMs ru
   <li>Network Security Groups</li>
   <li>Resource Groups</li>
   <li>Load Balancers</li>
-  <li>Jump box provisioners</li>
+  <li>Jump Box Provisioners</li>
   <li>Azure Lab VMs</li>
   <li>DVWA and Docker Containers</li>
 </ul>
