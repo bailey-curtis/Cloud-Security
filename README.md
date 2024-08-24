@@ -12,6 +12,8 @@ During our in-class activities we focused on configuring and setting up 3 VMs ru
 </ul>
 <br>
 The image below presents my final deliverable for this task:
+<br>
+![Cloud Security Deliverable.png](Cloud Security Deliverable.png)
 
 
 
