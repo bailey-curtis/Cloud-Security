@@ -23,13 +23,7 @@ The image below presents my final deliverable for this task:
 The following diagram was create within draw.io and outlines a cloud infrastructure network, which was created with Azure Labs.
 <br>
 <br>
-Our initial steps in creating the network involved creating our Red Team Resource Group, which will contain our network, firewalls and virtual environments.
-<br>
-<br>
-Once we had implemented our resource group, our virtual network was added which will allow our virtual machines to communicate with each other on the network. Our virtual network will behave just like a physical one, and each VM will still have a designated IP address.
-<br>
-<br>
-In order to harden our network, a network security group (NSG) was added. This will act as our basic firewall and will be used to block and allow traffic between our machines and the virtual network.
+The Red Team Resource Group contains our network, firewalls and virtual environments and will hold all of our VMs, jump-box and load balancer. Once we had implemented our resource group, our virtual network was added which will allow our virtual machines to communicate with each other on the network. Our virtual network will behave just like a physical one, and each VM will still have a designated IP address.
 <br>
 <br>
 VMs were then added accordingly, and set up with SSH keys. In order to do this, the following command was executed, which allowed us to create public/private key pair:
@@ -40,19 +34,13 @@ VMs were then added accordingly, and set up with SSH keys. In order to do this, 
 Once our key was generated, we ran <b>cat</b> against our new <b>id_rsa.pub</b> key. <br>
 The key string was copied and pasted into Azure's Administrator Account sections for the corresponding VM in Azure.
 <br>
-In conclusion, this has allowed us to create an administrator account on the machine which will have SSH access. This specific machine will be our jump box provisioner and will be used to access our other machines on the network.
+<br>
+Each of these components run through our Network Security Group (RedTeamNSG) which acts as our firewall on the network. The NSG has been configured to only allow SSH connection via the listed IP addresses. We will then use our jump-box to SSH into either of our Web VMs. In order to do this, our VMs were configured with docker containers and Ansible to allow for SSH public/private key integration.
 <br>
 <br>
-To configure the newly created machine, we identify our public IP address via entering the command <b>curl icanhazip.com</b> onto thew command line. We want to use of IPv4 address, and not our IPv6.
+Our load balancer (RedTeam_LB) has been set up to mitigate against DoS attacks. It will recieve traffic and distribute it across our servers to prevent one specific machine being overloaded in the event of an attack. A health probe was configured to monitor the load balancer. This connection was created and uses port 80 (TCP) to operate.
 <br>
-Once we have our IP, we had to create a rule within our security group to allow SSH connections through our public IP address to our internal VM's IP address.
-<br>
-<br>
-Docker was used to manage our containers within the other VMs on the network.
-<br>
-<b>cyberxsecurity/ansible</b> was pulled once docker was installed - this container will be the foundation for your VMs. Once these were successfully installed, a new security group rule was applied to allow our jump box full access to the virtual network.
-<br>
-<br>
+
 
 
 
